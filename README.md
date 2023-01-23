@@ -85,6 +85,13 @@ Analyzing the pros and cons of both the options to determine which open-source A
 can also be a profitable idea.
 ```
 
+```Console
+$ [4] Community Support:
+Having an idea of the type of community support each API management open source tool needs also helps in 
+choosing the right one. The larger and active a community is, the higher are the chances of receiving 
+updates and solutions to your queries; ultimately resulting in a better experience.
+```
+
 ## Popular OS APIM Soltions
 ```Console
 $ Apache APISIX
