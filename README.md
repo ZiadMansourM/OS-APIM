@@ -121,7 +121,43 @@ $ KrakenD
 ## Analyzing Current APIM Solutions
 | Number | Solution-Name | Docker Iamge | Summary |
 | :-----: | :-: | :-: | :-: |
-| 1 | [Apache APISIX](https://apisix.apache.org/) | [Image](https://hub.docker.com/r/apache/apisix) | [Apache APISIX](https://github.com/ZiadMansourM/OS-APIM#apache-apisix) |
+| 1 | [Kong Enterprise](https://konghq.com/) | [Image](https://hub.docker.com/_/kong) | [Kong Enterprise](https://github.com/ZiadMansourM/OS-APIM#kong-enterprise) |
+| 2 | [Apache APISIX](https://apisix.apache.org/) | [Image](https://hub.docker.com/r/apache/apisix) | [Apache APISIX](https://github.com/ZiadMansourM/OS-APIM#apache-apisix) |
 
+
+## Kong Enterprise
+
+| Language | Docker Pull |
+| :-----: | :-: |
+| Lua | 100M+ |
+
+```Console
+Why Kong Enterprise ?
+$ Popular 100M+ Docker Pull, open-source, and advanced cloud-native API gateway built for universal deployment. 
+$ Run on any platform. 
+$ Written in Lua programming language and supports hybrid and multi-cloud infrastructure.
+$ Optimized for microservices and distributed architectures.
+$ At its core, Kong is built for high performance, extensibility, and portability. 
+$ Kong is also lightweight, fast, and scalable. 
+$ Supports declarative configuration without a database, using in-memory storage only, and native Kubernative CRDs.
+$ Kong features: 
+- Load balancing (with different algorithms). 
+- Logging.
+- Authentication (support for OAuth2.0)
+- Rate-limiting
+- Transformations
+- Live monitoring
+- Service discovery
+- Caching
+- Failure detection and recovery
+- Clustering. Most importantly, Kong supports the clustering of nodes and serverless functions.
+$ Supports the configuration of proxies for your services, and serve them over SSL, or use WebSockets. 
+$ Can load balance traffic through replicas of your upstream services. 
+$ Can monitor the availability of your services, and adjust its load balancing accordingly.
+$ Additionally, Kong ships with a command-line interface that allows you to manage a Kong cluster from the command line. 
+$ Kong is highly extensible using plugins and different kinds of integrations. It can be managed with its RESTful API for maximum flexibility.
+```
 
 ## Apache APISIX
+
+
