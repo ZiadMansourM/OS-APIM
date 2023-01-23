@@ -9,6 +9,7 @@ Introduction to the `process of API Management` a crucial topic for every organi
 | 2 | [Popular APIM Solutions features](https://github.com/ZiadMansourM/OS-APIM#popular-apim-solutions-features) |
 | 3 | [How to Pick the Right APIM Solution](https://github.com/ZiadMansourM/OS-APIM#how-to-pick-the-right-open-source-api-management-solution) |
 | 4 | [Popular OS-APIM Soltions](https://github.com/ZiadMansourM/OS-APIM#popular-os-apim-soltions) |
+| 5 | [Analyzing Current APIM Solutions](https://github.com/ZiadMansourM/OS-APIM#analyzing-current-apim-solutions) |
 
 ## What is API Managment:
 ```Console
@@ -116,3 +117,11 @@ $ Mashery
 $ Azure
 $ KrakenD
 ```
+
+## Analyzing Current APIM Solutions
+| Number | Solution-Name | Docker Iamge | Summary |
+| :-----: | :-: | :-: | :-: |
+| 1 | [Apache APISIX](https://apisix.apache.org/) | [Image](https://hub.docker.com/r/apache/apisix) | [Apache APISIX](https://github.com/ZiadMansourM/OS-APIM#apache-apisix) |
+
+
+## Apache APISIX
