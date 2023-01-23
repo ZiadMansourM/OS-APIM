@@ -95,11 +95,11 @@ updates and solutions to your queries; ultimately resulting in a better experien
 ## Popular OS APIM Soltions
 ```Console
 $ Apache APISIX
+$ Kong Enterprise
 $ API Umbrella
 $ Gravitee.io
 $ APIman.io
 $ WSO2 API Manager
-$ Kong Enterprise
 $ Tyk.io
 $ Fusio
 $ Apigility
