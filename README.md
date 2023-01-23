@@ -5,10 +5,10 @@ Introduction to the `process of API Management` a crucial topic for every organi
 --------------------
 | Number | Topic  |
 | :-----: | :-: |
-| 1 | [What is API Managment](https://github.com/ZiadMansourM/OS-APIM/edit/main/README.md#what-is-api-managment) |
-| 2 | [Popular APIM Solutions features](https://github.com/ZiadMansourM/OS-APIM/edit/main/README.md#popular-apim-solutions-features) |
-| 3 | [How to Pick the Right APIM Solution](https://github.com/ZiadMansourM/OS-APIM/edit/main/README.md#how-to-pick-the-right-open-source-api-management-solution) |
-| 4 | [Popular OS-APIM Soltions](https://github.com/ZiadMansourM/OS-APIM/edit/main/README.md#popular-os-apim-soltions) |
+| 1 | [What is API Managment](https://github.com/ZiadMansourM/OS-APIM#what-is-api-managment) |
+| 2 | [Popular APIM Solutions features](https://github.com/ZiadMansourM/OS-APIM#popular-apim-solutions-features) |
+| 3 | [How to Pick the Right APIM Solution](https://github.com/ZiadMansourM/OS-APIM#how-to-pick-the-right-open-source-api-management-solution) |
+| 4 | [Popular OS-APIM Soltions](https://github.com/ZiadMansourM/OS-APIM#popular-os-apim-soltions) |
 
 ## What is API Managment:
 ```Console
