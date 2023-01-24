@@ -97,11 +97,17 @@ updates and solutions to your queries; ultimately resulting in a better experien
 ```Console
 $ Apache APISIX
 $ Kong Enterprise
-$ API Umbrella
 $ Gravitee.io
+$ Tyk.io
+$ KrakenD
+```
+
+```Console
+I checked the following and they don't seem good candidates:
+According to their Docker pull numbers and stars
+$ API Umbrella
 $ APIman.io
 $ WSO2 API Manager
-$ Tyk.io
 $ Fusio
 $ Apigility
 $ SwaggerHub
@@ -115,7 +121,6 @@ $ Gloo Edge
 $ Akana
 $ Mashery
 $ Azure
-$ KrakenD
 ```
 
 ## Analyzing Current APIM Solutions
@@ -254,5 +259,4 @@ to manage the Gravitee.io eco-system.
 
 
 ## Apache APISIX
-
 
