@@ -124,7 +124,8 @@ $ KrakenD
 | 1 | [Kong Enterprise](https://konghq.com/) | [Image](https://hub.docker.com/_/kong) | [Kong Enterprise](https://github.com/ZiadMansourM/OS-APIM#kong-enterprise) |
 | 2 | [Tyk](https://tyk.io/) | [Image](https://hub.docker.com/r/tykio/tyk-gateway) | [Tyk](https://github.com/ZiadMansourM/OS-APIM#tyk) |
 | 3 | [KrakenD](https://www.krakend.io/) | [Image](https://hub.docker.com/r/devopsfaith/krakend) | [KrakenD](https://github.com/ZiadMansourM/OS-APIM#krakend) |
-| 4 | [Apache APISIX](https://apisix.apache.org/) | [Image](https://hub.docker.com/r/apache/apisix) | [Apache APISIX](https://github.com/ZiadMansourM/OS-APIM#apache-apisix) |
+| 4 | [Gravitee](https://www.gravitee.io/) | [Image](https://hub.docker.com/r/graviteeio/management-api) | [gravitee](https://github.com/ZiadMansourM/OS-APIM#gravitee) |
+| 5 | [Apache APISIX](https://apisix.apache.org/) | [Image](https://hub.docker.com/r/apache/apisix) | [Apache APISIX](https://github.com/ZiadMansourM/OS-APIM#apache-apisix) |
 
 
 ## Kong Enterprise
@@ -227,6 +228,30 @@ design your API from scratch or resume an existing one.
 $ Furthermore, KrakenD’s extensible architecture allows for adding additional functionalities, plug-ins, 
 embedded scripts, and middlewares without modifying its source code.
 ```
+
+## Gravitee
+
+| Language | Docker Pull |
+| :-----: | :-: |
+| Java | 5M+ |
+
+```Console
+Why Gravitee ?
+$ Java-based, easy-to-use API management platform that helps organizations to secure, publish, analyze, and document their APIs. 
+$ Comes with three major modules, which are:
+- [1] API Management (APIM): an open-source, simple yet powerful, flexible, lightweight, and blazing-fast API management (APIM) solution 
+designed to give your organization full control over who accesses your APIs, when, and how.
+- [2] Access Management (AM): a flexible, lightweight, versatile, and easy-to-use Open Source Identity And Access Management solution. 
+It is based on OAuth2/OpenID Connect protocols and acts as an identity provider broker. It features a centralized Authentication 
+and Authorization Service to secure your applications and your APIs.
+- [3] Alert Engine (AE): a module that allows users to configure alerts and receive notifications to easily and efficiently monitor 
+their API platform. It supports multi-channel notifications and suspicious behavior detection, and more.
+$ Gravitee.io ships with Cockpit: 
+Tool that helps you design your APIs and publishes them across all your environments with fully-featured multi-tenancy support. 
+It enables you to scale your Gravitee.io deployment from the platform itself. And graviteeio-cli, a simple command-line tool used 
+to manage the Gravitee.io eco-system.
+```
+
 
 ## Apache APISIX
 
