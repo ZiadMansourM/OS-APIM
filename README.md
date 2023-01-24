@@ -122,7 +122,9 @@ $ KrakenD
 | Number | Solution-Name | Docker Iamge | Summary |
 | :-----: | :-: | :-: | :-: |
 | 1 | [Kong Enterprise](https://konghq.com/) | [Image](https://hub.docker.com/_/kong) | [Kong Enterprise](https://github.com/ZiadMansourM/OS-APIM#kong-enterprise) |
-| 2 | [Apache APISIX](https://apisix.apache.org/) | [Image](https://hub.docker.com/r/apache/apisix) | [Apache APISIX](https://github.com/ZiadMansourM/OS-APIM#apache-apisix) |
+| 2 | [Tyk](https://tyk.io/) | [Image](https://hub.docker.com/r/tykio/tyk-gateway) | [Tyk](https://github.com/ZiadMansourM/OS-APIM#tyk) |
+| 3 | [KrakenD](https://www.krakend.io/) | [Image](https://hub.docker.com/r/devopsfaith/krakend) | [KrakenD](https://github.com/ZiadMansourM/OS-APIM#krakend) |
+| 4 | [Apache APISIX](https://apisix.apache.org/) | [Image](https://hub.docker.com/r/apache/apisix) | [Apache APISIX](https://github.com/ZiadMansourM/OS-APIM#apache-apisix) |
 
 
 ## Kong Enterprise
@@ -156,6 +158,74 @@ $ Can load balance traffic through replicas of your upstream services.
 $ Can monitor the availability of your services, and adjust its load balancing accordingly.
 $ Additionally, Kong ships with a command-line interface that allows you to manage a Kong cluster from the command line. 
 $ Kong is highly extensible using plugins and different kinds of integrations. It can be managed with its RESTful API for maximum flexibility.
+```
+
+## Tyk
+
+| Language | Docker Pull |
+| :-----: | :-: |
+| Go | 5M+ |
+
+```Console
+Why Tyk ?
+$ Tyk (pronounced Taik) is an open-source, powerful, lightweight, and fully-featured API gateway.
+$ Written from the ground up using the Go programming language. 
+$ It is cloud-native, highly performant with an easily extensible and pluggable architecture based on open standards.
+$ Tyk can run independently and only requires Redis as a data store. 
+$ Allows users to securely publish and manage a variety of services including:
+- legacy
+- REST
+- GraphQL
+$ Baked with so many features which include a variety of: 
+- Authentication methods
+- Quotas
+- Rate-limiting
+- Version control
+- Notifications and events
+- Monitoring, and analytics
+$ Supports service discovery, on-the-fly transforms, and virtual endpoints.
+$ Allows for creating mock out APIs before release.
+$ Tyk also supports API documentation and offers an:
+- API Developer portal, a CMS-like system where you can publish your managed APIs and third-party developers 
+sign up, enroll to your APIs, and can manage their own keys.
+$ Importantly, there is only one version of the Tyk API Gateway and it is 100% Open Source. 
+- Whether you are a Community Edition user or an enterprise user, you get the same API Gateway. It ships with all possible
+parts required for full usability, with no feature lockout and no black box. With Tyk, you get to 
+know exactly how your data is being processed.
+```
+
+## KrakenD
+
+| Language | Docker Pull |
+| :-----: | :-: |
+| Go | 10M+ |
+
+```Console
+Why KrakenD ?
+$ Written in Go.
+$ Built with performance in mind. KrakenD is a high performance open-source, simple, and pluggable API gateway.
+$ Designed with stateless architecture. 
+$ Can run everywhere and requires no database to run. 
+$ Has a simple configuration and supports unlimited endpoints and backends.
+$ KrakenD features:
+- Monitoring
+- Caching
+- User quota
+- Rate limiting
+- Quality of service (concurrent calls, circuit breaker, and grained timeout) 
+- Transformation
+- Aggregation, merge sources 
+- Filtering (whitelisting and blacklisting)
+- Decoding. 
+$ KrakenD offers proxy features such as: 
+- Load balancing
+- Protocol translation
+- Oauth
+- Security features such as SSL and security policies.
+$ You can configure the API gateway behavior by hand or using the KrakenDesigner, a GUI that allows you visually 
+design your API from scratch or resume an existing one. 
+$ Furthermore, KrakenD’s extensible architecture allows for adding additional functionalities, plug-ins, 
+embedded scripts, and middlewares without modifying its source code.
 ```
 
 ## Apache APISIX
