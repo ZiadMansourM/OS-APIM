@@ -100,6 +100,8 @@ $ Kong Enterprise
 $ Gravitee.io
 $ Tyk.io
 $ KrakenD
+$ Ambassador
+$ Ocelet
 ```
 
 ```Console
