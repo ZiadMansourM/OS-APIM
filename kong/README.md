@@ -1,4 +1,12 @@
-# Kong analysis
+# Kong analysis - [live](http://registry.sreboy.com/)
+
+```Console
+*** We have three routes for our gateway
+$ /quotes >>> quotes-service
+$ /jokes >>> jokes-service
+$ /random >>> loadbalancer "One of the randomizer servers"
+*** You can not make more than 10 requests/minute to any endpoint
+```
 
 ![architecture](https://github.com/ZiadMansourM/OS-APIM/blob/main/kong/diagrams/final.png)
 
@@ -58,14 +66,6 @@ services:
 ```
 
 ## 🦍 Kong configuration file "/kong-config/kong.yaml"
-
-```Console
-*** We have three routes for our gateway
-$ /quotes >>> quotes-service
-$ /jokes >>> jokes-service
-$ /random >>> loadbalancer "One of the randomizer servers"
-*** You can not make more than 10 requests/minute to any endpoint
-```
 
 ```yaml
 _format_version: "2.1"
