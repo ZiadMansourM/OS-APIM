@@ -32,3 +32,9 @@ upstreams:
         weight: 100
       - target: random-two:3000
         weight: 100
+
+plugins:
+  - name: rate-limiting
+    config:
+      minute: 10
+      policy: local
