@@ -28,7 +28,7 @@ func listQuotes(c *gin.Context) {
 func main() {
 	router := gin.Default()
 
-	router.GET("/quotes", listQuotes)
+	router.GET("/", listQuotes)
 
 	router.Run(":3000")
 }

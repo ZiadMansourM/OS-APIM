@@ -1,2 +1,25 @@
 _format_version: "2.1"
 _transform: true
+
+services:
+  - name: quotes-service
+    url: http://quotes:3000
+    routes:
+      - name: quotes-service-routes
+        paths:
+          - /quotes
+        strip_path: true
+  - name: jokes-service
+    url: http://jokes:3000
+    routes:
+      - name: jokes-service-routes
+        paths:
+          - /jokes
+        strip_path: true
+  - name: randomizer-service
+    url: http://random:3000
+    routes:
+      - name: randomizer-service-routes
+        paths:
+          - /random
+        strip_path: true

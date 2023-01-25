@@ -27,7 +27,7 @@ func listJokes(c *gin.Context) {
 func main() {
 	router := gin.Default()
 
-	router.GET("/jokes", listJokes)
+	router.GET("/", listJokes)
 
 	router.Run(":3000")
 }

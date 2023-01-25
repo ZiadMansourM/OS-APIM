@@ -25,14 +25,10 @@ services:
     build:
       context: quotes-service/
       dockerfile: Dockerfile
-    ports:
-      - "3001:3000"
   jokes:
     build:
       context: jokes-service/
       dockerfile: Dockerfile
-    ports:
-      - "3002:3000"
   random:
     build:
       context: randomizer-service/

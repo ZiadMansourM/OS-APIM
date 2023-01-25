@@ -14,7 +14,7 @@ func getRandom(c *gin.Context) {
 func main() {
 	router := gin.Default()
 
-	router.GET("/random", getRandom)
+	router.GET("/", getRandom)
 
 	router.Run(":3000")
 }
