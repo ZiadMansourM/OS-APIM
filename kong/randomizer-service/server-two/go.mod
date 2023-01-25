@@ -1,4 +1,4 @@
-module kong/randomizer-service
+module kong/randomizer-service/server-two
 
 go 1.18
 

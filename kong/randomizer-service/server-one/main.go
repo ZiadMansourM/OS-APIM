@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"math/rand"
 	"net/http"
 
@@ -8,7 +9,7 @@ import (
 )
 
 func getRandom(c *gin.Context) {
-	c.IndentedJSON(http.StatusOK, rand.Intn(100))
+	c.IndentedJSON(http.StatusOK, fmt.Sprintf("Server One: %d", rand.Intn(100)))
 }
 
 func main() {

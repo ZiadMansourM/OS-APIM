@@ -24,7 +24,8 @@ services:
     depends_on:
       - quotes
       - jokes 
-      - random
+      - random-one
+      - random-two
   quotes:
     build:
       context: quotes-service/
@@ -33,7 +34,11 @@ services:
     build:
       context: jokes-service/
       dockerfile: Dockerfile
-  random:
+  random-one:
     build:
-      context: randomizer-service/
+      context: randomizer-service/server-one
+      dockerfile: Dockerfile
+  random-two:
+    build:
+      context: randomizer-service/server-two
       dockerfile: Dockerfile

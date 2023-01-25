@@ -10,6 +10,4 @@ FROM scratch
 WORKDIR /app
 COPY --from=builder /app/server.o .
 
-EXPOSE 8080
-
 ENTRYPOINT ["./server.o"]

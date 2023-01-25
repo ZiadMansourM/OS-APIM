@@ -17,9 +17,18 @@ services:
           - /jokes
         strip_path: true
   - name: randomizer-service
-    url: http://random:3000
+    host: randomizer-upstream
+    protocol: http
     routes:
       - name: randomizer-service-routes
         paths:
           - /random
         strip_path: true
+
+upstreams:
+  - name: randomizer-upstream
+    targets:
+      - target: random-one:3000
+        weight: 100
+      - target: random-two:3000
+        weight: 100
