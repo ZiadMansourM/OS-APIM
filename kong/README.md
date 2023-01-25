@@ -1,4 +1,4 @@
-# Kong analysis - [live](http://registry.sreboy.com/)
+# Kong analysis "DB-less mode" - [live](http://registry.sreboy.com/)
 
 ```Console
 *** We have three routes for our gateway
@@ -6,6 +6,13 @@ $ /quotes >>> quotes-service
 $ /jokes >>> jokes-service
 $ /random >>> loadbalancer "One of the randomizer servers"
 *** You can not make more than 10 requests/minute to any endpoint
+```
+
+### Why Dbless mode
+```Console
+*** Kong has DB mode "Cassandra, Postgresql" and Dbless mode "kong-config/kong.yaml"
+$ In Dbless mode you can version control your configuration easier "I saw it as a plus"
+$ Note: Some plugins still doesn't support dbless mode and require DB mode tho
 ```
 
 ![architecture](https://github.com/ZiadMansourM/OS-APIM/blob/main/kong/diagrams/final.png)
