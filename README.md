@@ -126,13 +126,13 @@ $ Azure
 ```
 
 ## Analyzing Current APIM Solutions
-| Number | Solution-Name | Docker Iamge | Summary | Language | Docker Pull |
-| :-----: | :-: | :-: | :-: | :-: | :-: |
-| 1 | [Kong Enterprise](https://konghq.com/) | [Image](https://hub.docker.com/_/kong) | [Kong Enterprise](https://github.com/ZiadMansourM/OS-APIM#kong-enterprise) | Lua | 100M+ |
-| 2 | [Tyk](https://tyk.io/) | [Image](https://hub.docker.com/r/tykio/tyk-gateway) | [Tyk](https://github.com/ZiadMansourM/OS-APIM#tyk) | Go | 5M+ |
-| 3 | [KrakenD](https://www.krakend.io/) | [Image](https://hub.docker.com/r/devopsfaith/krakend) | [KrakenD](https://github.com/ZiadMansourM/OS-APIM#krakend) | Go | 10M+ |
-| 4 | [Gravitee](https://www.gravitee.io/) | [Image](https://hub.docker.com/r/graviteeio/management-api) | [gravitee](https://github.com/ZiadMansourM/OS-APIM#gravitee) | Java | 5M+ |
-| 5 | [Apache APISIX](https://apisix.apache.org/) | [Image](https://hub.docker.com/r/apache/apisix) | [Apache APISIX](https://github.com/ZiadMansourM/OS-APIM#apache-apisix) |
+| Number | Solution-Name | Docker Iamge | Summary | Language | Docker Pull | GitHub Stars |
+| :-----: | :-: | :-: | :-: | :-: | :-: | :-: |
+| 1 | [Kong Enterprise](https://konghq.com/) | [Image](https://hub.docker.com/_/kong) | [Kong Enterprise](https://github.com/ZiadMansourM/OS-APIM#kong-enterprise) | Lua | 100M+ | [33.9k](https://github.com/Kong/kong) |
+| 2 | [Tyk](https://tyk.io/) | [Image](https://hub.docker.com/r/tykio/tyk-gateway) | [Tyk](https://github.com/ZiadMansourM/OS-APIM#tyk) | Go | 5M+ | [8.1k](https://github.com/TykTechnologies/tyk) |
+| 3 | [KrakenD](https://www.krakend.io/) | [Image](https://hub.docker.com/r/devopsfaith/krakend) | [KrakenD](https://github.com/ZiadMansourM/OS-APIM#krakend) | Go | 10M+ | [1.1k](https://github.com/krakendio/krakend-ce) |
+| 4 | [Gravitee](https://www.gravitee.io/) | [Image](https://hub.docker.com/r/graviteeio/management-api) | [gravitee](https://github.com/ZiadMansourM/OS-APIM#gravitee) | Java | 5M+ | [1.6k](https://github.com/gravitee-io/gravitee-api-management) |
+| 5 | [Apache APISIX](https://apisix.apache.org/) | [Image](https://hub.docker.com/r/apache/apisix) | [Apache APISIX](https://github.com/ZiadMansourM/OS-APIM#apache-apisix) | Lua, Go, Python, Perl | 5M+ | [11.1k](https://github.com/apache/apisix) |
 
 
 ## Kong Enterprise - [example](https://github.com/ZiadMansourM/OS-APIM/tree/main/kong)
