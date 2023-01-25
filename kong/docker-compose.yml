@@ -15,12 +15,16 @@ services:
       KONG_DECLARATIVE_CONFIG: "/opt/kong/kong.yaml"
     command: "kong start"
     ports:
-      - "8000:8000"
-      - "8443:8443"
-      - "8001:8001"
-      - "8444:8444"
+      - "8000:8000" # incoming HTTP traffic
+      - "8443:8443" # incoming HTTPS traffic
+      - "8001:8001" # Admin API HTTP
+      - "8444:8444" # Admin API HTTPS
     volumes:
       - ./kong-config:/opt/kong
+    depends_on:
+      - quotes
+      - jokes 
+      - random
   quotes:
     build:
       context: quotes-service/
@@ -33,5 +37,3 @@ services:
     build:
       context: randomizer-service/
       dockerfile: Dockerfile
-    ports:
-      - "3003:3000"
