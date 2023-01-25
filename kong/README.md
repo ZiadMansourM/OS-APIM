@@ -109,3 +109,8 @@ plugins:
       minute: 10
       policy: local
 ```
+
+
+## Kong Rate Limiter in action
+
+![rate-limiter](https://github.com/ZiadMansourM/OS-APIM/blob/main/kong/pics/kong-rate-limit.png)
