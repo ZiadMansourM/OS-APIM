@@ -170,10 +170,10 @@ $ Azure
 <summary>Click me</summary>
 <br/>
 
-| Language | Docker Pull |
-| :-----: | :-: |
-| Lua | 100M+ |
-
+| Solution-Name | Docker Image | Language | Docker Pull | GitHub Stars |
+| :-: | :-: | :-: | :-: | :-: |
+| [Kong Enterprise](https://konghq.com/) | [Image](https://hub.docker.com/_/kong) | Lua | 100M+ | [33.9k](https://github.com/Kong/kong) |
+  
 # Kong quick summary
 
 ```Console
