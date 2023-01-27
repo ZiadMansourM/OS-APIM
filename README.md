@@ -1,17 +1,22 @@
 # 🧐 API Management Solutions / Platforms
-Introduction to the `process of API Management` a crucial topic for every organization. Plus, analysis to `Open-Source APIM Solutions and Platforms`.
+Introduction to the `process of API Management` a crucial topic for every organization. Plus, analysis of existing `Open-Source APIM Solutions and Platforms`.
 
 🦦 Table of contents
 --------------------
 | Number | Topic  |
 | :-----: | :-: |
-| 1 | [What is API Managment](https://github.com/ZiadMansourM/OS-APIM#what-is-api-managment) |
-| 2 | [Popular APIM Solutions features](https://github.com/ZiadMansourM/OS-APIM#popular-apim-solutions-features) |
-| 3 | [How to Pick the Right APIM Solution](https://github.com/ZiadMansourM/OS-APIM#how-to-pick-the-right-open-source-api-management-solution) |
-| 4 | [Popular OS-APIM Soltions](https://github.com/ZiadMansourM/OS-APIM#popular-os-apim-soltions) |
-| 5 | [Analyzing Current APIM Solutions](https://github.com/ZiadMansourM/OS-APIM#analyzing-current-apim-solutions) |
+| 1 | What is API Management |
+| 2 | What features to expect from an APIM solution |
+| 3 | How to Pick the Right APIM Solution |
+| 4 | Popular OS-APIM Soltions |
+| 5 | Analyzing Current APIM Solutions |
 
-## What is API Managment:
+## What is API Management?
+
+<details>
+<summary>Click me</summary>
+<br/>
+
 ```Console
 API management is the process of:
 $ Building
@@ -24,7 +29,14 @@ $ Cataloging
 $ Retiring APIs
 ```
 
-## Popular APIM Solutions features:
+</details>
+
+## What features to expect from an APIM solution?
+
+<details>
+<summary>Click me</summary>
+<br/>
+
 An API management solution is a SaaS or PaaS product at the end of the day, aiming at making APIM process easier and more efficient. But, every Open-Source APIM Solution or Platform tool out there has specific requirements and implementation limitations. Here we will list some of these popular features.
 
 ```Console
@@ -60,8 +72,14 @@ $ API Builder
 - Enable the use of low-code / no-code tools to design, build, integrate, and deploy APIs.
 ```
 
+</details>
 
-## How to Pick the Right Open-Source API Management Solution
+## How to Pick the Right Open-Source API Management Solution?
+
+<details>
+<summary>Click me</summary>
+<br/>
+
 ```Console
 $ [1] Features: 
 The foremost factor to consider is the features provided from the APIMP.
@@ -93,7 +111,14 @@ choosing the right one. The larger and active a community is, the higher are the
 updates and solutions to your queries; ultimately resulting in a better experience.
 ```
 
+</details>
+
 ## Popular OS APIM Soltions
+
+<details>
+<summary>Click me</summary>
+<br/>
+
 ```Console
 $ Apache APISIX
 $ Kong Enterprise
@@ -125,21 +150,31 @@ $ Mashery
 $ Azure
 ```
 
+</details>
+
 ## Analyzing Current APIM Solutions
-| Number | Solution-Name | Docker Iamge | Summary | Language | Docker Pull | GitHub Stars |
-| :-----: | :-: | :-: | :-: | :-: | :-: | :-: |
-| 1 | [Kong Enterprise](https://konghq.com/) | [Image](https://hub.docker.com/_/kong) | [Kong Enterprise](https://github.com/ZiadMansourM/OS-APIM#kong-enterprise---example) | Lua | 100M+ | [33.9k](https://github.com/Kong/kong) |
-| 2 | [Tyk](https://tyk.io/) | [Image](https://hub.docker.com/r/tykio/tyk-gateway) | [Tyk](https://github.com/ZiadMansourM/OS-APIM#tyk) | Go | 5M+ | [8.1k](https://github.com/TykTechnologies/tyk) |
-| 3 | [KrakenD](https://www.krakend.io/) | [Image](https://hub.docker.com/r/devopsfaith/krakend) | [KrakenD](https://github.com/ZiadMansourM/OS-APIM#krakend) | Go | 10M+ | [1.1k](https://github.com/krakendio/krakend-ce) |
-| 4 | [Gravitee](https://www.gravitee.io/) | [Image](https://hub.docker.com/r/graviteeio/management-api) | [gravitee](https://github.com/ZiadMansourM/OS-APIM#gravitee) | Java | 5M+ | [1.6k](https://github.com/gravitee-io/gravitee-api-management) |
-| 5 | [Apache APISIX](https://apisix.apache.org/) | [Image](https://hub.docker.com/r/apache/apisix) | [Apache APISIX](https://github.com/ZiadMansourM/OS-APIM#apache-apisix) | Lua, Go, Python, Perl | 5M+ | [11.1k](https://github.com/apache/apisix) |
+| Number | Solution-Name | Docker Image | Language | Docker Pull | GitHub Stars |
+| :-----: | :-: | :-: | :-: | :-: | :-: |
+| 1 | [Kong Enterprise](https://konghq.com/) | [Image](https://hub.docker.com/_/kong) | Lua | 100M+ | [33.9k](https://github.com/Kong/kong) |
+| 2 | [Tyk](https://tyk.io/) | [Image](https://hub.docker.com/r/tykio/tyk-gateway) | Go | 5M+ | [8.1k](https://github.com/TykTechnologies/tyk) |
+| 3 | [KrakenD](https://www.krakend.io/) | [Image](https://hub.docker.com/r/devopsfaith/krakend) | Go | 10M+ | [1.1k](https://github.com/krakendio/krakend-ce) |
+| 4 | [Gravitee](https://www.gravitee.io/) | [Image](https://hub.docker.com/r/graviteeio/management-api) | Java | 5M+ | [1.6k](https://github.com/gravitee-io/gravitee-api-management) |
+| 5 | [Apache APISIX](https://apisix.apache.org/) | [Image](https://hub.docker.com/r/apache/apisix) | Lua, Go, Python, Perl | 5M+ | [11.1k](https://github.com/apache/apisix) |
+| 6 | [Ambassador](https://www.getambassador.io/) | [Image](https://hub.docker.com/r/datawire/ambassador) | Kubernetes-native built on Envoy  | 10M+ | - |
+| 7 | [Ocelot](https://learn.microsoft.com/en-us/dotnet/architecture/microservices/multi-container-microservice-net-applications/implement-api-gateways-with-ocelot) | [Image](https://hub.docker.com/r/datawire/ambassador) | .NET Core  | 100K+ | [7.5k](https://github.com/ThreeMammals/Ocelot) |
 
 
-## Kong Enterprise - [example](https://github.com/ZiadMansourM/OS-APIM/tree/main/kong)
+## Kong Enterprise
+
+<details>
+<summary>Click me</summary>
+<br/>
 
 | Language | Docker Pull |
 | :-----: | :-: |
 | Lua | 100M+ |
+
+# Kong quick summary
 
 ```Console
 Why Kong Enterprise ?
@@ -168,7 +203,181 @@ $ Additionally, Kong ships with a command-line interface that allows you to mana
 $ Kong is highly extensible using plugins and different kinds of integrations. It can be managed with its RESTful API for maximum flexibility.
 ```
 
+# Kong detailed analysis "DB-less mode" - [deployed](http://registry.sreboy.com/)
+
+```Console
+*** We have three routes for our gateway
+$ /quotes >>> quotes-service
+$ /jokes >>> jokes-service
+$ /random >>> loadbalancer "One of the randomizer servers"
+*** You can not make more than 10 requests/minute to any endpoint
+```
+
+### Why Dbless mode
+```Console
+*** Kong has DB mode "Cassandra, Postgresql" and Dbless mode "kong-config/kong.yaml"
+$ In Dbless mode you can version control your configuration files "I saw it as a plus"
+$ Note: Some plugins still doesn't support dbless mode and require DB mode tho
+```
+
+![kong_detailed_analysis](https://user-images.githubusercontent.com/116031573/214587039-403ec2ab-98cb-4ed1-8d55-1701d60cfb23.png)
+
+
+### In this [example](https://github.com/ZiadMansourM/OS-APIM/tree/main/kong), we have three services:
+  - Quotes Service
+  - Jokes Service
+  - Randomizer Service "Load balance between two containers"
+ 
+```Console
+(venv) ziadh@Ziads-MacBook-Air kong % tree -I venv -I pics -I diagrams -I go.sum   
+.
+├── README.md
+├── docker-compose.yml
+├── jokes-service
+│   ├── Dockerfile
+│   ├── go.mod
+│   └── main.go
+├── kong-config
+│   └── kong.yaml
+├── quotes-service
+│   ├── Dockerfile
+│   ├── go.mod
+│   └── main.go
+└── randomizer-service
+    ├── server-one
+    │   ├── Dockerfile
+    │   ├── go.mod
+    │   └── main.go
+    └── server-two
+        ├── Dockerfile
+        ├── go.mod
+        └── main.go
+
+6 directories, 15 files
+```
+
+
+## 🐳 docker-compose
+
+```yaml
+version: '3.7'
+
+services:
+  kong:
+    image: kong:3.1.1-alpine
+    hostname: kong
+    container_name: kong
+    environment:
+      KONG_DATABASE: "off"
+      KONG_PROXY_ACCESS_LOG: "/dev/stdout"
+      KONG_ADMIN_ACCESS_LOG: "/dev/stdout"
+      KONG_PROXY_ERROR_LOG: "/dev/stderr"
+      KONG_ADMIN_ERROR_LOG: "/dev/stderr"
+      KONG_ADMIN_LISTEN: "0.0.0.0:8001, 0.0.0.0:8444 ssl"
+      KONG_DECLARATIVE_CONFIG: "/opt/kong/kong.yaml"
+    command: "kong start"
+    ports:
+      - "8000:8000" # incoming HTTP traffic
+      - "8443:8443" # incoming HTTPS traffic
+      - "8001:8001" # Admin API HTTP
+      - "8444:8444" # Admin API HTTPS
+    volumes:
+      - ./kong-config:/opt/kong
+    depends_on:
+      - quotes
+      - jokes 
+      - random-one
+      - random-two
+  quotes:
+    build:
+      context: quotes-service/
+      dockerfile: Dockerfile
+  jokes:
+    build:
+      context: jokes-service/
+      dockerfile: Dockerfile
+  random-one:
+    build:
+      context: randomizer-service/server-one
+      dockerfile: Dockerfile
+  random-two:
+    build:
+      context: randomizer-service/server-two
+      dockerfile: Dockerfile
+```
+
+## 🦍 Kong configuration file "/kong-config/kong.yaml"
+
+```yaml
+_format_version: "2.1"
+_transform: true
+
+services:
+  - name: quotes-service
+    url: http://quotes:3000
+    routes:
+      - name: quotes-service-routes
+        paths:
+          - /quotes
+        strip_path: true
+  - name: jokes-service
+    url: http://jokes:3000
+    routes:
+      - name: jokes-service-routes
+        paths:
+          - /jokes
+        strip_path: true
+  - name: randomizer-service
+    host: randomizer-upstream
+    protocol: http
+    routes:
+      - name: randomizer-service-routes
+        paths:
+          - /random
+        strip_path: true
+
+upstreams:
+  - name: randomizer-upstream
+    targets:
+      - target: random-one:3000
+        weight: 100
+      - target: random-two:3000
+        weight: 100
+
+plugins:
+  - name: rate-limiting
+    config:
+      minute: 10
+      policy: local
+```
+
+## Kong Gateway Router in action - [try-quotes](http://registry.sreboy.com/quotes) - [try-jokes](http://registry.sreboy.com/jokes)
+
+Quotes Service |  Jokes Service
+:--:|:--:
+![quotes](https://user-images.githubusercontent.com/116031573/214593294-401b6b5d-ac03-49d9-9d1b-daef4477cb37.png)  |  ![jokes](https://user-images.githubusercontent.com/116031573/214593334-7fa42c94-0b1e-4d31-bba7-c22fced5253c.png)
+
+
+## Kong load-balancer in action - [try-it](http://registry.sreboy.com/random)
+
+Server One |  Server Two
+:--:|:--:
+![server-one](https://user-images.githubusercontent.com/116031573/214591408-f125b466-38bf-420c-8e3e-5cb93afa4e82.png)  |  ![server-two](https://user-images.githubusercontent.com/116031573/214591454-7b1f543a-ee5d-4efa-ae18-b03690b9a5da.png)
+
+## Kong Rate Limiter in action - [try-it](http://registry.sreboy.com/random)
+
+
+<img width="1440" alt="kong-rate-limit" src="https://user-images.githubusercontent.com/116031573/214588034-19f9de77-a758-43dc-a0f5-3b19a90caf75.png">
+
+
+</details>
+
+
 ## Tyk
+
+<details>
+<summary>Click me</summary>
+<br/>
 
 | Language | Docker Pull |
 | :-----: | :-: |
@@ -202,7 +411,13 @@ parts required for full usability, with no feature lockout and no black box. Wit
 know exactly how your data is being processed.
 ```
 
+</details>
+
 ## KrakenD
+
+<details>
+<summary>Click me</summary>
+<br/>
 
 | Language | Docker Pull |
 | :-----: | :-: |
@@ -236,8 +451,14 @@ $ Furthermore, KrakenD’s extensible architecture allows for adding additional 
 embedded scripts, and middlewares without modifying its source code.
 ```
 
+</details>
+
 ## Gravitee
 
+<details>
+<summary>Click me</summary>
+<br/>
+  
 | Language | Docker Pull |
 | :-----: | :-: |
 | Java | 5M+ |
@@ -259,6 +480,12 @@ It enables you to scale your Gravitee.io deployment from the platform itself. An
 to manage the Gravitee.io eco-system.
 ```
 
+</details>
 
 ## Apache APISIX
 
+<details>
+<summary>Click me</summary>
+<br/>
+  
+</details>
