@@ -370,6 +370,39 @@ Server One |  Server Two
 <img width="1440" alt="kong-rate-limit" src="https://user-images.githubusercontent.com/116031573/214588034-19f9de77-a758-43dc-a0f5-3b19a90caf75.png">
 
 
+## Kong Plugin Hub - [link](https://docs.konghq.com/hub/) - [custom-plugins](https://docs.konghq.com/gateway/latest/plugin-development/)
+```Console
+*** Kong has these functionality-categories of Plugins:
+$ Authentication - "Basic Authentication, JWT, OAuth 2.0, ...etc".
+$ Security - "CORS, Bot detection, IP Restriction, ...etc".
+$ Traffic Control - "Proxy Cache, Rate Limiting, Request Size Limiting, ...etc".
+$ Serverless - "AWS Lambda, Azure Functions, ...etc".
+$ Analytics & Monitoring - "Datadog, Prometheus, OpenTelemetry".
+$ Transformations - "gRPC-gateway, gRPC-Web, ...etc".
+$ Logging - "File Log, HTTP Log, Loggy, ...etc".
+$ Deployment - "AWS, Azure, KongMap".
+*** Also Plugins are categorized on:
+$ Free.
+$ Plus.
+$ Enterprise.
+```
+
+## How to include a plugin e.g. [Request Size Limiting](https://docs.konghq.com/hub/kong-inc/request-size-limiting/) plugin
+Such a super important plugin is strongly encouraged to be enabled for any Service added to Kong Gateway to prevent a DOS (Denial of Service) attack. You can add it by only appending those lines to Kong.yaml file in case you are using Dbless mode or view [other-example-confg](https://docs.konghq.com/hub/kong-inc/request-size-limiting/#example-config):
+```yaml
+plugins:
+- name: request-size-limiting
+  service: SERVICE_NAME|SERVICE_ID
+  config: 
+    allowed_payload_size: 128
+    require_content_length: false
+```
+
+### Sadly the Kong [DevPortal](https://docs.konghq.com/gateway/latest/kong-enterprise/dev-portal/) is only included in [Enterprise edition](https://konghq.com/pricing).
+
+## ToDo
+- [ ] Enable [Kong Manger](https://docs.konghq.com/gateway/latest/kong-manager/) GUI.
+
 </details>
 
 
