@@ -2,7 +2,7 @@ from diagrams import Cluster, Diagram
 from diagrams.onprem.compute import Server
 from diagrams.onprem.client import Client
 
-with Diagram("Clustered Web Services", show=False):
+with Diagram("Kong detailed analysis", show=False):
     api_client = Client("API Client")
 
     with Cluster("Kong Gateway"):
