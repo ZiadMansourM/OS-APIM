@@ -50,3 +50,10 @@
 2023/02/07 17:22:04 [warn] 52#52: *2 [lua] plugin.lua:252: load_stream(): new plugins: {"ip-restriction":true,"syslog":true,"limit-conn":true,"mqtt-proxy":true}, context: init_worker_by_lua*
 2023/02/07 17:22:04 [warn] 50#50: *1 [lua] plugin.lua:252: load_stream(): new plugins: {"ip-restriction":true,"syslog":true,"limit-conn":true,"mqtt-proxy":true}, context: init_worker_by_lua*
 2023/02/07 17:44:35 [warn] 55#55: *66447 [lua] v3.lua:829: request_chunk(): http://etcd:2379: failed to parse domain: failed to parse domain. Retrying, context: ngx.timer
+2023/02/07 17:49:36 [warn] 51#51: *66525 [lua] v3.lua:829: request_chunk(): http://etcd:2379: failed to parse domain: failed to parse domain. Retrying, context: ngx.timer
+2023/02/07 17:55:06 [warn] 51#51: *132910 [lua] v3.lua:829: request_chunk(): http://etcd:2379: failed to parse domain: failed to parse domain. Retrying, context: ngx.timer
+2023/02/07 17:57:06 [warn] 55#55: *132807 [lua] v3.lua:829: request_chunk(): http://etcd:2379: failed to parse domain: failed to parse domain. Retrying, context: ngx.timer
+2023/02/07 19:07:48 [warn] 51#51: *199204 [lua] v3.lua:829: request_chunk(): http://etcd:2379: failed to parse domain: failed to parse domain. Retrying, context: ngx.timer
+2023/02/07 19:12:48 [warn] 51#51: *265487 [lua] v3.lua:829: request_chunk(): http://etcd:2379: failed to parse domain: failed to parse domain. Retrying, context: ngx.timer
+2023/02/07 19:57:50 [warn] 55#55: *398381 [lua] v3.lua:829: request_chunk(): http://etcd:2379: failed to parse domain: failed to parse domain. Retrying, context: ngx.timer
+2023/02/07 19:58:20 [warn] 55#55: *398381 [lua] v3.lua:829: request_chunk(): http://etcd:2379: failed to parse domain: failed to parse domain. Retrying, context: ngx.timer
