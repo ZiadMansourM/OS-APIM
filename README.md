@@ -776,7 +776,15 @@ plugins:
   :--:|:--:
   ![Nginx One](https://user-images.githubusercontent.com/64917739/217322024-3b40927d-8807-4f72-a3f9-8849eecbaf87.png) | ![Nginx Two](https://user-images.githubusercontent.com/64917739/217322064-beeec2d7-079a-407f-9732-80f5b41b7f3f.png)
   
+  ## 🧐 APISIX Dashboard
   
+  <img width="1440" alt="login" src="https://user-images.githubusercontent.com/64917739/217326628-1851fc6d-8543-47dc-8e3a-c1f71954f3b3.png">
+
+  
+  Upstream Page |  Route Page
+:--:|:--:
+![Upstream](https://user-images.githubusercontent.com/64917739/217326759-c7d3acab-f3cd-4015-ad46-a3b8d49da193.png) | ![Route](https://user-images.githubusercontent.com/64917739/217326946-c360ed39-6355-4ef9-a713-0b46381e22c4.png)
+
   
 </details>
 
