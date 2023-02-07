@@ -405,6 +405,381 @@ plugins:
 
 </details>
 
+## Apache APISIX
+
+<details>
+<summary>Click me</summary>
+<br/>
+
+  | Solution-Name | Docker Image | Language | Docker Pull | GitHub Stars |
+  | :-: | :-: | :-: | :-: | :-: |
+  | [Apache APISIX](https://apisix.apache.org/) | [Image](https://hub.docker.com/r/apache/apisix) | Lua, Go, Python, Perl | 5M+ | [11.1k](https://github.com/apache/apisix) |
+  
+  # Apache APISIX Quick Summary
+  ```console
+  $ Apache APISIX has three deploymet moods
+  @https://apisix.apache.org/docs/apisix/deployment-modes/
+  1- Traditional 
+  2- Decoupled
+  3- Standalone
+  $ We will be using Traditional mode, for example see:
+  @https://github.com/ZiadMansourM/OS-APIM/tree/main/apache-apisix
+  ```
+  
+  # Apache Traditional Mode
+  ```Console
+  *** We have four routes for our gateway
+  $ /quotes >>> quotes-service
+  $ /jokes >>> jokes-service
+  $ /random >>> loadbalancer "One of the randomizer servers"
+  $ /nginx >>> loadbalancer "One of the Nginx servers"
+  *** You can not make more than 10 requests/minute to any endpoint
+  ```
+  
+  ![apache_apisix_detailed_analysis](https://user-images.githubusercontent.com/64917739/217309653-a2a4686a-4aa6-4e98-9080-296dc17a1b15.png)
+  
+  ### In this [example](https://github.com/ZiadMansourM/OS-APIM/tree/main/apache-apisix/traditional), we have four services:
+  - Quotes Service.
+  - Jokes Service.
+  - Randomizer Service.
+  - Web Service.
+  
+  ```console
+  ziadh@Ziads-MacBook-Air traditional % tree -I diagrams -I go.sum -I grafana -I etcd -I prometheus
+  .
+  ├── README.md
+  ├── docker-compose.yml
+  └── services
+      ├── apisix
+      │   ├── config
+      │   │   └── config.yaml
+      │   └── logs
+      │       ├── access.log
+      │       ├── error.log
+      │       └── nginx.pid
+      ├── apisix-dashboard
+      │   ├── config
+      │   │   └── conf.yaml
+      │   └── logs
+      ├── jokes-service
+      │   ├── Dockerfile
+      │   ├── go.mod
+      │   └── main.go
+      ├── quotes-service
+      │   ├── Dockerfile
+      │   ├── go.mod
+      │   └── main.go
+      ├── randomizer-service
+      │   ├── server-one
+      │   │   ├── Dockerfile
+      │   │   ├── go.mod
+      │   │   └── main.go
+      │   └── server-two
+      │       ├── Dockerfile
+      │       ├── go.mod
+      │       └── main.go
+      └── upstream
+          ├── web-one.conf
+          └── web-two.conf
+
+  13 directories, 21 files
+  ```
+  
+  ## 🐳 docker-compose
+  ```yaml
+  version: "3"
+
+  services:
+    apisix-dashboard:
+      image: apache/apisix-dashboard:3.0.0-alpine
+      restart: always
+      volumes:
+      -  ./services/apisix-dashboard/config/conf.yaml:/usr/local/apisix-dashboard/conf/conf.yaml
+      ports:
+      - "9000:9000"
+      networks:
+        apisix:
+
+    apisix:
+      image: apache/apisix:latest
+      restart: always
+      volumes:
+        - ./services/apisix/logs:/usr/local/apisix/logs
+        # ro: read only
+        - ./services/apisix/config/config.yaml:/usr/local/apisix/conf/config.yaml:ro
+      depends_on:
+        - etcd
+      # network_mode: host
+      ports:
+        - "9180:9180/tcp" # Access Admin API
+        - "9080:9080/tcp" # HTTP Traffic
+        - "9443:9443/tcp" # HTTPs Traffic
+        - "9091:9091/tcp" # ~Not~Sure~ prometheus port
+        - "9092:9092/tcp" # ~Not~Sure~ control port see: 
+      networks:
+        apisix:
+
+    etcd:
+      image: bitnami/etcd:3.4.15
+      restart: always
+      volumes:
+        - ./services/etcd/data:/bitnami/etcd
+      environment:
+        ETCD_ENABLE_V2: "true"
+        ALLOW_NONE_AUTHENTICATION: "yes"
+        ETCD_ADVERTISE_CLIENT_URLS: "http://etcd:2379"
+        ETCD_LISTEN_CLIENT_URLS: "http://0.0.0.0:2379"
+      ports:
+        - "2379:2379/tcp"
+      networks:
+        apisix:
+
+    quotes:
+      build:
+        context: ./services/quotes-service/
+        dockerfile: Dockerfile
+      networks:
+        apisix:
+
+    jokes:
+      build:
+        context: ./services/jokes-service/
+        dockerfile: Dockerfile
+      networks:
+        apisix:
+
+    random-one:
+      build:
+        context: ./services/randomizer-service/server-one
+        dockerfile: Dockerfile
+      networks:
+        apisix:
+
+    random-two:
+      build:
+        context: ./services/randomizer-service/server-two
+        dockerfile: Dockerfile
+      networks:
+        apisix:
+
+    web-one:
+      image: nginx:1.19.0-alpine
+      restart: always
+      volumes:
+        - ./services/upstream/web-one.conf:/etc/nginx/nginx.conf
+      ports:
+        - "9081:80/tcp"
+      environment:
+        - NGINX_PORT=80
+      networks:
+        apisix:
+
+    web-two:
+      image: nginx:1.19.0-alpine
+      restart: always
+      volumes:
+        - ./services/upstream/web-two.conf:/etc/nginx/nginx.conf
+      ports:
+        - "9082:80/tcp"
+      environment:
+        - NGINX_PORT=80
+      networks:
+        apisix:
+
+    prometheus:
+      image: prom/prometheus:v2.25.0
+      restart: always
+      volumes:
+        - ./services/prometheus/config/config.yaml:/etc/prometheus/prometheus.yml
+      ports:
+        - "9090:9090"
+      networks:
+        apisix:
+
+    grafana:
+      image: grafana/grafana:7.3.7
+      restart: always
+      ports:
+        - "3000:3000"
+      volumes:
+        - "./services/grafana/provisioning:/etc/grafana/provisioning"
+        - "./services/grafana/dashboards:/var/lib/grafana/dashboards"
+        - "./services/grafana/config/grafana.ini:/etc/grafana/grafana.ini"
+      networks:
+        apisix:
+
+  networks:
+    apisix:
+      driver: bridge
+
+  volumes:
+    etcd_data:
+      driver: local
+  ```
+  
+  ## APISIX config.yaml
+  
+  ```yaml
+  apisix:
+    node_listen: 9080 # APISIX Gateway listening port for HTTP Traffic
+    enable_ipv6: false
+    enable_control: true
+    control:
+      ip: "0.0.0.0"
+      port: 9092
+
+  deployment:
+    admin:
+      allow_admin:
+        # http://nginx.org/en/docs/http/ngx_http_access_module.html#allow
+        # We need to restrict ip access rules for security. 0.0.0.0/0 is for test.
+        - 0.0.0.0/0
+      admin_key:
+        - name: "admin"
+          key: edd1c9f034335f136f87ad84b625c8f1
+          # admin: manage all configuration data
+          role: admin
+        - name: "viewer"
+          key: 4054f7cf07e344346cd3f287985e76a2
+          role: viewer
+    etcd:
+      host:
+        # it's possible to define multiple etcd hosts addresses of the same etcd cluster.
+        - "http://etcd:2379"
+      prefix: "/apisix" # apisix configurations prefix
+      timeout: 30 # 30 seconds
+
+  plugin_attr:
+    prometheus:
+      export_addr:
+        ip: "0.0.0.0"
+        port: 9091
+  ```
+  
+  ## APISIX Dashboard conf.yaml
+  
+  ```yaml
+  conf:
+    listen:
+      host: 0.0.0.0 # `manager api` listening ip or host name
+      port: 9000 # `manager api` listening port
+    allow_list: # If we don't set any IP list, then any IP access is allowed by default.
+      - 0.0.0.0/0
+    etcd:
+      endpoints: # supports defining multiple etcd host addresses for an etcd cluster
+        - "http://etcd:2379"
+      # etcd basic auth info
+      # username: "root"    # ignore etcd username if not enable etcd auth
+      # password: "123456"  # ignore etcd password if not enable etcd auth
+      mtls:
+        key_file: "" # Path of your self-signed client side key
+        cert_file: "" # Path of your self-signed client side cert
+        ca_file: "" # Path of your self-signed ca cert, the CA is used to sign callers' certificates
+      prefix: /apisix # apisix config's prefix in etcd, /apisix by default
+    log:
+      error_log:
+        level: warn # supports levels, lower to higher: debug, info, warn, error, panic, fatal
+        file_path:
+          # supports relative path, absolute path, standard output
+          # such as: logs/error.log, /tmp/logs/error.log, /dev/stdout, /dev/stderr
+          logs/error.log
+      access_log:
+        file_path:
+          # supports relative path, absolute path, standard output
+          # such as: logs/access.log, /tmp/logs/access.log, /dev/stdout, /dev/stderr
+          # log example: 2020-12-09T16:38:09.039+0800	INFO	filter/logging.go:46	/apisix/admin/routes/r1	{"status": 401, "host": "127.0.0.1:9000", "query": "asdfsafd=adf&a=a", "requestId": "3d50ecb8-758c-46d1-af5b-cd9d1c820156", "latency": 0, "remoteIP": "127.0.0.1", "method": "PUT", "errs": []}
+          logs/access.log
+    security:
+        # access_control_allow_origin: "http://httpbin.org"
+        # access_control_allow_credentials: true # support using custom cors configuration
+        # access_control_allow_headers: "Authorization"
+        # access_control-allow_methods: "*"
+        # x_frame_options: "deny"
+        content_security_policy: "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; frame-src *"  # You can set frame-src to provide content for your grafana panel.
+
+  authentication:
+    secret:
+      # secret for jwt token generation.
+      # NOTE: Highly recommended to modify this value to protect `manager api`.
+      # if it's default value, when `manager api` start, it will generate a random string to replace it.
+      secret
+    expire_time: 3600 # jwt token expire time, in second
+    users:
+      # username and password for login `manager api`
+      - username: admin
+        password: admin
+      - username: user
+        password: user
+
+  plugins:
+    - api-breaker
+    - authz-keycloak
+    - basic-auth
+    - batch-requests
+    - consumer-restriction
+    - cors
+    # - dubbo-proxy
+    - echo
+    # - error-log-logger
+    # - example-plugin
+    - fault-injection
+    - grpc-transcode
+    - hmac-auth
+    - http-logger
+    - ip-restriction
+    - jwt-auth
+    - kafka-logger
+    - key-auth
+    - limit-conn
+    - limit-count
+    - limit-req
+    # - log-rotate
+    # - node-status
+    - openid-connect
+    - prometheus
+    - proxy-cache
+    - proxy-mirror
+    - proxy-rewrite
+    - redirect
+    - referer-restriction
+    - request-id
+    - request-validation
+    - response-rewrite
+    - serverless-post-function
+    - serverless-pre-function
+    # - skywalking
+    - sls-logger
+    - syslog
+    - tcp-logger
+    - udp-logger
+    - uri-blocker
+    - wolf-rbac
+    - zipkin
+    - server-info
+    - traffic-split
+  ```
+  
+  ## 🧐 APISIX Gateway router in action
+  
+  Quotes Service |  Jokes Service
+:--:|:--:
+![quotes](https://user-images.githubusercontent.com/64917739/217319686-b3240822-6a31-488c-ba5c-47aa1009da8e.png) | ![jokes](https://user-images.githubusercontent.com/64917739/217319717-5c4f54da-8bf5-4b7e-8523-00327e7678af.png)
+
+  ## 🧐 APISIX Gateway router + loadbalancer in action
+  
+  Randomizer Server One |  Randomizer Server Two
+  :--:|:--:
+  ![Server One](https://user-images.githubusercontent.com/64917739/217321131-03417e58-32f8-4ce9-9fee-a93e64909cb4.png) | ![Server Two](https://user-images.githubusercontent.com/64917739/217321360-cea694f4-1204-4e9d-a66d-055ac4e0e071.png)
+
+  
+  [Nginx Upstream One](https://github.com/ZiadMansourM/OS-APIM/blob/main/apache-apisix/traditional/services/upstream/web-one.conf) |  [Nginx Upstream Two](https://github.com/ZiadMansourM/OS-APIM/blob/main/apache-apisix/traditional/services/upstream/web-two.conf)
+  :--:|:--:
+  ![Nginx One](https://user-images.githubusercontent.com/64917739/217322024-3b40927d-8807-4f72-a3f9-8849eecbaf87.png) | ![Nginx Two](https://user-images.githubusercontent.com/64917739/217322064-beeec2d7-079a-407f-9732-80f5b41b7f3f.png)
+  
+  
+  
+</details>
+
 
 ## Tyk
 
@@ -513,12 +888,4 @@ It enables you to scale your Gravitee.io deployment from the platform itself. An
 to manage the Gravitee.io eco-system.
 ```
 
-</details>
-
-## Apache APISIX
-
-<details>
-<summary>Click me</summary>
-<br/>
-  
 </details>
