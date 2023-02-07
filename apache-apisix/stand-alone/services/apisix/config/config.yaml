@@ -1,0 +1,18 @@
+apisix:
+  node_listen: 9080 # APISIX Gateway listening port for HTTP Traffic
+  enable_ipv6: false
+  enable_control: true
+  control:
+    ip: "0.0.0.0"
+    port: 9092
+
+deployment:
+  role: data_plane
+  role_data_plane:
+    config_provider: yaml
+
+plugin_attr:
+  prometheus:
+    export_addr:
+      ip: "0.0.0.0"
+      port: 9091

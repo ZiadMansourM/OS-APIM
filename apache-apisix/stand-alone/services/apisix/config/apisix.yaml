@@ -1,0 +1,40 @@
+routes:
+  - name: randomizer-service-routes
+    desc: Get a random number
+    uri: /random
+    upstream_id: 1
+    methods: 
+      - GET
+    status: 1
+  - name: jokes-service-routes
+    desc: List all jokes
+    uri: /jokes
+    upstream_id: 2
+    methods: 
+      - GET
+    status: 1
+
+upstreams:
+  - name: randomizer-upstream
+    desc: Upstream for randomizer service
+    id: 1
+    type: roundrobin
+    scheme: http
+    nodes:
+      "random-one:3000": 1
+      "random-two:3000": 1
+  - name: jokes-upstream
+    desc: Upstream for jokes service
+    id: 2
+    type: roundrobin
+    scheme: http
+    nodes:
+      "jokes:3000": 1
+    plugins:
+      proxy-rewrite:
+        uri: http://jokes:3000/
+
+plugins:
+  - name: proxy-rewrite
+
+#END
