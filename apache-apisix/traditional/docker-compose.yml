@@ -23,9 +23,9 @@ services:
     # network_mode: host
     ports:
       - "9180:9180/tcp" # Access Admin API
-      - "9080:9080/tcp" # HTTP Traffic 
-      - "9091:9091/tcp" # ~Not~Sure~ prometheus port
+      - "9080:9080/tcp" # HTTP Traffic
       - "9443:9443/tcp" # HTTPs Traffic
+      - "9091:9091/tcp" # ~Not~Sure~ prometheus port
       - "9092:9092/tcp" # ~Not~Sure~ control port see: 
     networks:
       apisix:

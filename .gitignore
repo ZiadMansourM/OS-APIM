@@ -2,3 +2,4 @@
 **/venv
 **/.DS_Store
 **/*-local
+**/etcd/data
