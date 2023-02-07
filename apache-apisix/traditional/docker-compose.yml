@@ -1,0 +1,128 @@
+version: "3"
+
+services:
+  apisix-dashboard:
+    image: apache/apisix-dashboard:3.0.0-alpine
+    restart: always
+    volumes:
+    -  ./services/apisix-dashboard/config/conf.yaml:/usr/local/apisix-dashboard/conf/conf.yaml
+    ports:
+    - "9000:9000"
+    networks:
+      apisix:
+
+  apisix:
+    image: apache/apisix:latest
+    restart: always
+    volumes:
+      - ./services/apisix/logs:/usr/local/apisix/logs
+      # ro: read only
+      - ./services/apisix/config/config.yaml:/usr/local/apisix/conf/config.yaml:ro
+    depends_on:
+      - etcd
+    # network_mode: host
+    ports:
+      - "9180:9180/tcp" # Access Admin API
+      - "9080:9080/tcp" # HTTP Traffic 
+      - "9091:9091/tcp" # ~Not~Sure~ prometheus port
+      - "9443:9443/tcp" # HTTPs Traffic
+      - "9092:9092/tcp" # ~Not~Sure~ control port see: 
+    networks:
+      apisix:
+
+  etcd:
+    image: bitnami/etcd:3.4.15
+    restart: always
+    volumes:
+      - ./services/etcd/data:/bitnami/etcd
+    environment:
+      ETCD_ENABLE_V2: "true"
+      ALLOW_NONE_AUTHENTICATION: "yes"
+      ETCD_ADVERTISE_CLIENT_URLS: "http://etcd:2379"
+      ETCD_LISTEN_CLIENT_URLS: "http://0.0.0.0:2379"
+    ports:
+      - "2379:2379/tcp"
+    networks:
+      apisix:
+
+  quotes:
+    build:
+      context: ./services/quotes-service/
+      dockerfile: Dockerfile
+    networks:
+      apisix:
+  
+  jokes:
+    build:
+      context: ./services/jokes-service/
+      dockerfile: Dockerfile
+    networks:
+      apisix:
+  
+  random-one:
+    build:
+      context: ./services/randomizer-service/server-one
+      dockerfile: Dockerfile
+    networks:
+      apisix:
+  
+  random-two:
+    build:
+      context: ./services/randomizer-service/server-two
+      dockerfile: Dockerfile
+    networks:
+      apisix:
+  
+  web-one:
+    image: nginx:1.19.0-alpine
+    restart: always
+    volumes:
+      - ./services/upstream/web-one.conf:/etc/nginx/nginx.conf
+    ports:
+      - "9081:80/tcp"
+    environment:
+      - NGINX_PORT=80
+    networks:
+      apisix:
+
+  web-two:
+    image: nginx:1.19.0-alpine
+    restart: always
+    volumes:
+      - ./services/upstream/web-two.conf:/etc/nginx/nginx.conf
+    ports:
+      - "9082:80/tcp"
+    environment:
+      - NGINX_PORT=80
+    networks:
+      apisix:
+
+  prometheus:
+    image: prom/prometheus:v2.25.0
+    restart: always
+    volumes:
+      - ./services/prometheus/config/config.yaml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+    networks:
+      apisix:
+
+  grafana:
+    image: grafana/grafana:7.3.7
+    restart: always
+    ports:
+      - "3000:3000"
+    volumes:
+      - "./services/grafana/provisioning:/etc/grafana/provisioning"
+      - "./services/grafana/dashboards:/var/lib/grafana/dashboards"
+      - "./services/grafana/config/grafana.ini:/etc/grafana/grafana.ini"
+    networks:
+      apisix:
+
+networks:
+  apisix:
+    driver: bridge
+
+volumes:
+  etcd_data:
+    driver: local
