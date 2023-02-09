@@ -1,0 +1,70 @@
+version: "3"
+
+services:
+  quotes:
+    build:
+      context: ./services/quotes-service/
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000/tcp"
+    networks:
+      apiservices:
+  
+  jokes:
+    build:
+      context: ./services/jokes-service/
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3000/tcp"
+    networks:
+      apiservices:
+  
+  random-one:
+    build:
+      context: ./services/randomizer-service/server-one
+      dockerfile: Dockerfile
+    ports:
+      - "3002:3000/tcp"
+    networks:
+      apiservices:
+  
+  random-two:
+    build:
+      context: ./services/randomizer-service/server-two
+      dockerfile: Dockerfile
+    ports:
+      - "3003:3000/tcp"
+    networks:
+      apiservices:
+  
+  web-one:
+    image: nginx:1.19.0-alpine
+    restart: always
+    volumes:
+      - ./services/upstream/web-one.conf:/etc/nginx/nginx.conf
+    ports:
+      - "3004:3000/tcp"
+    environment:
+      - NGINX_PORT=80
+    networks:
+      apiservices:
+
+  web-two:
+    image: nginx:1.19.0-alpine
+    restart: always
+    volumes:
+      - ./services/upstream/web-two.conf:/etc/nginx/nginx.conf
+    ports:
+      - "3005:3000/tcp"
+    environment:
+      - NGINX_PORT=80
+    networks:
+      apiservices:
+
+networks:
+  apiservices:
+    driver: bridge
+
+volumes:
+  etcd_data:
+    driver: local
